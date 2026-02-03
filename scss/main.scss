@@ -1,0 +1,12 @@
+// Importa tudo
+@use 'reset';
+@use 'variables';
+@use 'typography';
+@use 'button';
+@use 'card';
+
+// Estilo global
+body {
+  background: variables.$light;
+  padding: 40px;
+}

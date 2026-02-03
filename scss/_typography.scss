@@ -1,0 +1,17 @@
+@use 'variables' as *;
+
+h1 { 
+  font-size: 32px; 
+  color: $dark;
+  margin-bottom: $spacing-md;
+}
+
+h2 { 
+  font-size: 24px; 
+  color: $dark;
+  margin-bottom: $spacing-sm;
+}
+
+p { 
+  margin-bottom: $spacing-md; 
+}

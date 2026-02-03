@@ -1,0 +1,17 @@
+@use 'variables' as *;
+
+.card {
+  background: $white;
+  border-radius: $border-radius;
+  padding: $spacing-lg;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  
+  &__title {
+    font-size: 20px;
+    margin-bottom: $spacing-sm;
+  }
+  
+  &__text {
+    color: #666;
+  }
+}
