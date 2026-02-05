@@ -1,17 +1,190 @@
+// ==========================================
+// CARDS - Sistema Completo
+// ==========================================
+
+@use 'sass:color';
 @use 'variables' as *;
 
 .card {
-  background: $white;
-  border-radius: $border-radius;
+  background: $color-white;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-md;
   padding: $spacing-lg;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: all $transition-base;
+  position: relative;
+  overflow: hidden;
+  
+  &:hover {
+    box-shadow: $shadow-xl;
+    transform: translateY(-4px);
+  }
+  
+  &__header {
+    margin-bottom: $spacing-md;
+    padding-bottom: $spacing-md;
+    border-bottom: 2px solid $color-light;
+  }
   
   &__title {
-    font-size: 20px;
-    margin-bottom: $spacing-sm;
+    font-size: $font-size-h4;
+    font-weight: $font-weight-bold;
+    color: $color-dark;
+    margin-bottom: $spacing-xs;
+  }
+  
+  &__subtitle {
+    font-size: $font-size-small;
+    color: $color-text-light;
+    font-weight: $font-weight-medium;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
   
   &__text {
-    color: #666;
+    font-size: $font-size-base;
+    line-height: 1.6;
+    color: $color-text;
+    margin-bottom: $spacing-md;
+  }
+  
+  &__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: $radius-md;
+    margin-bottom: $spacing-md;
+  }
+  
+  &__footer {
+    margin-top: $spacing-md;
+    padding-top: $spacing-md;
+    border-top: 2px solid $color-light;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  &--bordered {
+    border: 3px solid $color-primary;
+    
+    &:hover {
+      border-color: color.adjust($color-primary, $lightness: -10%);
+    }
+  }
+  
+  &--gradient {
+    background: $gradient-primary;
+    color: $color-white;
+    
+    .card__title,
+    .card__text {
+      color: $color-white;
+    }
+  }
+  
+  &--horizontal {
+    display: flex;
+    gap: $spacing-lg;
+    
+    .card__image {
+      width: 300px;
+      height: auto;
+      flex-shrink: 0;
+    }
+  }
+  
+  &--featured {
+    background: $gradient-hero;
+    color: $color-white;
+    padding: $spacing-xl;
+    
+    .card__title,
+    .card__text {
+      color: $color-white;
+    }
+    
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+  
+  &--flat {
+    box-shadow: none;
+    background: $color-light;
+    
+    &:hover {
+      box-shadow: $shadow-sm;
+      background: $color-white;
+    }
+  }
+  
+  &--compact {
+    padding: $spacing-md;
+    
+    .card__title {
+      font-size: $font-size-h5;
+    }
+  }
+  
+  &--overlay {
+    position: relative;
+    padding: 0;
+    color: $color-white;
+    
+    .card__image {
+      height: 100%;
+      margin: 0;
+      border-radius: $radius-lg;
+    }
+    
+    .card__content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: $spacing-lg;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+      border-radius: 0 0 $radius-lg $radius-lg;
+    }
+    
+    .card__title,
+    .card__text {
+      color: $color-white;
+    }
+  }
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: $grid-gap;
+  
+  &--2cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  &--3cols {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  &--4cols {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  @media (max-width: $breakpoint-lg) {
+    &--3cols,
+    &--4cols {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+    
+    &--2cols,
+    &--3cols,
+    &--4cols {
+      grid-template-columns: 1fr;
+    }
   }
 }

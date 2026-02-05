@@ -1,0 +1,292 @@
+// ==========================================
+// CSS GRID - Demonstrações e Layouts
+// ==========================================
+
+@use 'variables' as *;
+
+.grid {
+  display: grid;
+  gap: $grid-gap;
+  
+  &--cols-1 { grid-template-columns: repeat(1, 1fr); }
+  &--cols-2 { grid-template-columns: repeat(2, 1fr); }
+  &--cols-3 { grid-template-columns: repeat(3, 1fr); }
+  &--cols-4 { grid-template-columns: repeat(4, 1fr); }
+  &--cols-5 { grid-template-columns: repeat(5, 1fr); }
+  &--cols-6 { grid-template-columns: repeat(6, 1fr); }
+  
+  &--auto-fill { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+  &--auto-fit { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+  
+  &--gap-sm { gap: $grid-gap-sm; }
+  &--gap-lg { gap: $spacing-xl; }
+  
+  &--dense { grid-auto-flow: dense; }
+}
+
+.grid-item {
+  &--span-2 { grid-column: span 2; }
+  &--span-3 { grid-column: span 3; }
+  &--span-4 { grid-column: span 4; }
+  &--span-full { grid-column: 1 / -1; }
+  &--row-span-2 { grid-row: span 2; }
+  &--row-span-3 { grid-row: span 3; }
+}
+
+.grid-layout {
+  &--dashboard {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 80px 1fr 60px;
+    grid-template-areas:
+      "sidebar header"
+      "sidebar main"
+      "sidebar footer";
+    min-height: 100vh;
+    gap: 0;
+    
+    .dashboard-header {
+      grid-area: header;
+      background: $color-white;
+      box-shadow: $shadow-sm;
+      padding: $spacing-md $spacing-lg;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .dashboard-sidebar {
+      grid-area: sidebar;
+      background: $color-dark;
+      color: $color-white;
+      padding: $spacing-lg;
+    }
+    
+    .dashboard-main {
+      grid-area: main;
+      padding: $spacing-lg;
+      background: $color-light;
+    }
+    
+    .dashboard-footer {
+      grid-area: footer;
+      background: $color-white;
+      padding: $spacing-md $spacing-lg;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-top: 1px solid $color-light;
+    }
+  }
+  
+  &--magazine {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 200px);
+    gap: $spacing-md;
+    
+    .featured {
+      grid-column: 1 / 4;
+      grid-row: 1 / 3;
+      background: $gradient-hero;
+      border-radius: $radius-lg;
+      padding: $spacing-xl;
+      color: $color-white;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    
+    .article {
+      background: $color-white;
+      border-radius: $radius-md;
+      padding: $spacing-md;
+      box-shadow: $shadow-md;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all $transition-base;
+      
+      &:hover {
+        box-shadow: $shadow-xl;
+        transform: translateY(-4px);
+      }
+    }
+  }
+  
+  &--gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: 150px;
+    gap: $spacing-md;
+    
+    .gallery-item {
+      border-radius: $radius-md;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      
+      &:hover {
+        .gallery-overlay {
+          opacity: 1;
+        }
+      }
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      &--tall { grid-row: span 2; }
+      &--wide { grid-column: span 2; }
+      &--large {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+    }
+    
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba($color-dark, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $color-white;
+      opacity: 0;
+      transition: opacity $transition-base;
+    }
+  }
+  
+  &--pricing {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: $spacing-lg;
+    
+    .pricing-card {
+      background: $color-white;
+      border-radius: $radius-lg;
+      box-shadow: $shadow-md;
+      padding: $spacing-xl;
+      text-align: center;
+      transition: all $transition-base;
+      display: flex;
+      flex-direction: column;
+      
+      &:hover {
+        box-shadow: $shadow-2xl;
+        transform: translateY(-8px);
+      }
+      
+      &--featured {
+        background: $gradient-primary;
+        color: $color-white;
+        position: relative;
+        
+        &::before {
+          content: 'Popular';
+          position: absolute;
+          top: $spacing-md;
+          right: $spacing-md;
+          background: $color-white;
+          color: $color-primary;
+          padding: $spacing-xs $spacing-sm;
+          border-radius: $radius-full;
+          font-size: $font-size-small;
+          font-weight: $font-weight-bold;
+        }
+      }
+      
+      .price {
+        font-size: 3rem;
+        font-weight: $font-weight-black;
+        margin: $spacing-md 0;
+      }
+      
+      .features {
+        flex: 1;
+        margin: $spacing-lg 0;
+        
+        li {
+          padding: $spacing-xs 0;
+          border-bottom: 1px solid rgba($color-text, 0.1);
+        }
+      }
+    }
+  }
+  
+  &--blog {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: $spacing-xl;
+    
+    .blog-posts {
+      display: grid;
+      gap: $spacing-lg;
+    }
+    
+    .blog-post {
+      background: $color-white;
+      border-radius: $radius-lg;
+      overflow: hidden;
+      box-shadow: $shadow-md;
+      
+      &__image {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+      }
+      
+      &__content {
+        padding: $spacing-lg;
+      }
+    }
+    
+    .blog-sidebar {
+      .widget {
+        background: $color-light;
+        padding: $spacing-lg;
+        border-radius: $radius-md;
+        margin-bottom: $spacing-lg;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-lg) {
+  .grid-layout--dashboard {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "main"
+      "footer";
+    
+    .dashboard-sidebar {
+      display: none;
+    }
+  }
+  
+  .grid-layout--blog {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .grid--cols-3,
+  .grid--cols-4,
+  .grid--cols-5,
+  .grid--cols-6 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .grid--cols-2,
+  .grid--cols-3,
+  .grid--cols-4,
+  .grid--cols-5,
+  .grid--cols-6 {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,17 +1,186 @@
+// ==========================================
+// TIPOGRAFIA - Sistema Completo
+// ==========================================
+
+@use 'sass:color';
 @use 'variables' as *;
 
-h1 { 
-  font-size: 32px; 
-  color: $dark;
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-heading;
+  font-weight: $font-weight-bold;
+  color: $color-dark;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, $font-size-h1);
+  font-weight: $font-weight-black;
+  margin-bottom: $spacing-lg;
+  
+  &.display {
+    font-family: $font-display;
+    font-weight: $font-weight-black;
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, $font-size-h2);
+  margin-bottom: $spacing-md;
+  
+  &.display {
+    font-family: $font-display;
+    font-weight: $font-weight-bold;
+  }
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, $font-size-h3);
   margin-bottom: $spacing-md;
 }
 
-h2 { 
-  font-size: 24px; 
-  color: $dark;
+h4 {
+  font-size: $font-size-h4;
   margin-bottom: $spacing-sm;
 }
 
-p { 
-  margin-bottom: $spacing-md; 
+h5 {
+  font-size: $font-size-h5;
+  margin-bottom: $spacing-sm;
+}
+
+h6 {
+  font-size: $font-size-h6;
+  margin-bottom: $spacing-xs;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: $font-weight-semibold;
+}
+
+p {
+  font-size: $font-size-base;
+  line-height: 1.75;
+  margin-bottom: $spacing-md;
+  color: $color-text;
+  
+  &.lead {
+    font-size: $font-size-large;
+    font-weight: $font-weight-light;
+    line-height: 1.8;
+    color: $color-text-light;
+  }
+  
+  &.small {
+    font-size: $font-size-small;
+  }
+}
+
+a {
+  color: $color-primary;
+  font-weight: $font-weight-medium;
+  position: relative;
+  
+  &:hover {
+    color: color.adjust($color-primary, $lightness: -15%);
+  }
+  
+  &.underline {
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: $color-primary;
+      transition: width $transition-base;
+    }
+    
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-uppercase { 
+  text-transform: uppercase; 
+  letter-spacing: 0.05em; 
+}
+
+.text-gradient {
+  background: $gradient-primary;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.font-mono {
+  font-family: $font-mono;
+  font-size: 0.9em;
+}
+
+.label {
+  display: inline-block;
+  padding: $spacing-xs $spacing-sm;
+  font-size: $font-size-small;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: $radius-sm;
+  background-color: $color-light;
+  color: $color-text;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: $radius-full;
+  background: $gradient-primary;
+  color: $color-white;
+}
+
+blockquote {
+  border-left: 4px solid $color-primary;
+  padding-left: $spacing-lg;
+  margin: $spacing-xl 0;
+  font-size: $font-size-large;
+  font-style: italic;
+  color: $color-text-light;
+}
+
+code {
+  font-family: $font-mono;
+  font-size: 0.9em;
+  padding: 2px 6px;
+  background-color: rgba($color-primary, 0.1);
+  border-radius: $radius-sm;
+  color: $color-primary;
+}
+
+pre {
+  background-color: $color-dark;
+  color: $color-light;
+  padding: $spacing-md;
+  border-radius: $radius-md;
+  overflow-x: auto;
+  
+  code {
+    background: none;
+    padding: 0;
+    color: inherit;
+  }
 }

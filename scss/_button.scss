@@ -1,24 +1,161 @@
+// ==========================================
+// BOTÕES - Sistema Completo
+// ==========================================
+
+@use 'sass:color';
 @use 'variables' as *;
 
 .button {
-  padding: $spacing-md $spacing-lg;
-  border: none;
-  border-radius: $border-radius;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-xs;
+  padding: $spacing-sm $spacing-lg;
+  font-family: $font-heading;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  text-align: center;
+  border: 2px solid transparent;
+  border-radius: $radius-md;
   cursor: pointer;
-  font-weight: 500;
-  transition: all 0.2s;
+  transition: all $transition-base;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
   
-  &:hover {
-    transform: translateY(-2px);
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width $transition-slow, height $transition-slow;
+  }
+  
+  &:hover::before {
+    width: 300px;
+    height: 300px;
+  }
+  
+  &:active {
+    transform: scale(0.98);
+  }
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    
+    &:hover {
+      transform: none;
+    }
   }
   
   &--primary {
-    background: $primary;
-    color: $white;
+    background: $gradient-primary;
+    color: $color-white;
+    box-shadow: $shadow-md;
+    
+    &:hover {
+      box-shadow: $shadow-lg;
+      transform: translateY(-2px);
+    }
   }
   
   &--secondary {
-    background: $secondary;
-    color: $white;
+    background: $gradient-secondary;
+    color: $color-white;
+    box-shadow: $shadow-md;
+    
+    &:hover {
+      box-shadow: $shadow-lg;
+      transform: translateY(-2px);
+    }
+  }
+  
+  &--outline {
+    background: transparent;
+    color: $color-primary;
+    border-color: $color-primary;
+    
+    &:hover {
+      background: $color-primary;
+      color: $color-white;
+    }
+  }
+  
+  &--ghost {
+    background: transparent;
+    color: $color-text;
+    
+    &:hover {
+      background: rgba($color-primary, 0.1);
+      color: $color-primary;
+    }
+  }
+  
+  &--dark {
+    background: $color-dark;
+    color: $color-white;
+    
+    &:hover {
+      background: color.adjust($color-dark, $lightness: 10%);
+    }
+  }
+  
+  &--light {
+    background: $color-light;
+    color: $color-text;
+    
+    &:hover {
+      background: color.adjust($color-light, $lightness: -5%);
+    }
+  }
+  
+  &--small {
+    padding: $spacing-xs $spacing-md;
+    font-size: $font-size-small;
+  }
+  
+  &--large {
+    padding: $spacing-md $spacing-xl;
+    font-size: $font-size-large;
+  }
+  
+  &--block {
+    width: 100%;
+  }
+  
+  &--pill {
+    border-radius: $radius-full;
+  }
+  
+  &__icon {
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.button-group {
+  display: flex;
+  gap: $spacing-sm;
+  flex-wrap: wrap;
+  
+  &--vertical {
+    flex-direction: column;
+  }
+  
+  &--center {
+    justify-content: center;
+  }
+  
+  &--between {
+    justify-content: space-between;
   }
 }

@@ -4,25 +4,547 @@
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>SASS Minimalista</title>
+     <meta name="description"
+          content="Demonstração profissional de habilidades CSS: Flexbox, Grid, Animações e Design Moderno">
+     <title>CSS Skills Showcase | Frontend Portfolio</title>
      <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+     <!-- Navigation -->
+     <nav class="nav">
+          <div class="nav__container">
+               <div class="nav__logo">CSS Skills</div>
+               <ul class="nav__menu">
+                    <li><a href="#hero">Início</a></li>
+                    <li><a href="#flexbox">Flexbox</a></li>
+                    <li><a href="#grid">Grid</a></li>
+                    <li><a href="#animations">Animações</a></li>
+                    <li><a href="#components">Componentes</a></li>
+               </ul>
+          </div>
+     </nav>
 
-     <h1>SASS Minimalista</h1>
-     <p>Arquitetura simples para aprender os conceitos.</p>
+     <!-- Hero Section -->
+     <section id="hero" class="hero">
+          <div class="hero__content">
+               <h1 class="hero__title">
+                    CSS Skills <span class="highlight">Showcase</span>
+               </h1>
+               <p class="hero__subtitle">
+                    Demonstração profissional de Flexbox, Grid, Animações e Técnicas Modernas de CSS com SASS
+               </p>
+               <div class="hero__cta">
+                    <button class="button button--primary button--large button--pill">Ver Demonstrações</button>
+                    <button class="button button--outline button--large button--pill"
+                         style="border-color: white; color: white;">Download Portfolio</button>
+               </div>
+          </div>
+     </section>
 
-     <h2>Botões</h2>
-     <button class="button button--primary">Primary</button>
-     <button class="button button--secondary">Secondary</button>
+     <!-- Stats Section -->
+     <section class="section">
+          <div class="container">
+               <div class="grid grid--cols-4">
+                    <div class="stat animate--fade-in-up">
+                         <div class="stat__number">100+</div>
+                         <div class="stat__label">Projetos</div>
+                    </div>
+                    <div class="stat animate--fade-in-up animate-delay--1">
+                         <div class="stat__number">50+</div>
+                         <div class="stat__label">Clientes</div>
+                    </div>
+                    <div class="stat animate--fade-in-up animate-delay--2">
+                         <div class="stat__number">5+</div>
+                         <div class="stat__label">Anos</div>
+                    </div>
+                    <div class="stat animate--fade-in-up animate-delay--3">
+                         <div class="stat__number">99%</div>
+                         <div class="stat__label">Satisfação</div>
+                    </div>
+               </div>
+          </div>
+     </section>
 
-     <h2 style="margin-top: 30px;">Card</h2>
-     <div class="card">
-          <h3 class="card__title">Título do Card</h3>
-          <p class="card__text">Texto do card com estilo.</p>
-     </div>
+     <!-- Flexbox Showcase -->
+     <section id="flexbox" class="section section--light">
+          <div class="container">
+               <h2 class="display text-center mb-xl animate--fade-in">Demonstrações de Flexbox</h2>
+               <p class="lead text-center mb-xl" style="max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Layouts flexíveis e responsivos usando Flexbox para criar interfaces modernas e adaptáveis
+               </p>
 
+               <!-- Flexbox: Navigation Pattern -->
+               <div class="mb-xl">
+                    <h3 class="mb-md">1. Header com Logo e Navegação</h3>
+                    <div class="flex-layout--header">
+                         <div class="logo">MeuSite</div>
+                         <nav class="nav">
+                              <a href="#">Home</a>
+                              <a href="#">Sobre</a>
+                              <a href="#">Serviços</a>
+                              <a href="#">Contato</a>
+                         </nav>
+                    </div>
+               </div>
+
+               <!-- Flexbox: Media Object -->
+               <div class="mb-xl">
+                    <h3 class="mb-md">2. Media Object (Imagem + Conteúdo)</h3>
+                    <div class="flex-layout--media">
+                         <div class="media-image"
+                              style="background: linear-gradient(135deg, #FF6B35, #F7B801); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                              🎨
+                         </div>
+                         <div class="media-content">
+                              <h4>Design Responsivo</h4>
+                              <p>Layouts que se adaptam perfeitamente a qualquer tamanho de tela, proporcionando uma
+                                   experiência consistente em todos os dispositivos.</p>
+                              <button class="button button--primary mt-md">Saiba Mais</button>
+                         </div>
+                    </div>
+               </div>
+
+               <!-- Flexbox: Features Grid -->
+               <div class="mb-xl">
+                    <h3 class="mb-md">3. Grade de Features (Wrap Automático)</h3>
+                    <div class="flex-layout--features">
+                         <div class="feature">
+                              <div class="feature-icon">⚡</div>
+                              <h5>Performance</h5>
+                              <p>Otimizado para velocidade máxima</p>
+                         </div>
+                         <div class="feature">
+                              <div class="feature-icon">🎯</div>
+                              <h5>Precisão</h5>
+                              <p>Pixel-perfect em todos os detalhes</p>
+                         </div>
+                         <div class="feature">
+                              <div class="feature-icon">🚀</div>
+                              <h5>Escalável</h5>
+                              <p>Cresce com suas necessidades</p>
+                         </div>
+                         <div class="feature">
+                              <div class="feature-icon">💎</div>
+                              <h5>Qualidade</h5>
+                              <p>Código limpo e profissional</p>
+                         </div>
+                         <div class="feature">
+                              <div class="feature-icon">🎨</div>
+                              <h5>Design</h5>
+                              <p>Estética moderna e atraente</p>
+                         </div>
+                         <div class="feature">
+                              <div class="feature-icon">🔧</div>
+                              <h5>Customizável</h5>
+                              <p>Adaptável a qualquer projeto</p>
+                         </div>
+                    </div>
+               </div>
+
+               <!-- Flexbox: Centering -->
+               <div class="mb-xl">
+                    <h3 class="mb-md">4. Centralização Perfeita</h3>
+                    <div style="background: linear-gradient(135deg, #004E89, #006BA6); height: 300px; border-radius: 16px;"
+                         class="flex-center-content">
+                         <div style="text-align: center; color: white;">
+                              <h4 style="color: white; margin-bottom: 1rem;">Conteúdo Perfeitamente Centralizado</h4>
+                              <p style="color: rgba(255,255,255,0.9);">Vertical e horizontalmente, sempre no centro</p>
+                              <button class="button button--light mt-md">Botão Centralizado</button>
+                         </div>
+                    </div>
+               </div>
+
+               <!-- Flexbox: Space Between Layout -->
+               <div class="mb-xl">
+                    <h3 class="mb-md">5. Distribuição com Space-Between</h3>
+                    <div class="flex flex--justify-between flex--align-center"
+                         style="padding: 2rem; background: white; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.07);">
+                         <div>
+                              <h4>Total a Pagar</h4>
+                              <p class="text-light">Incluindo taxas e impostos</p>
+                         </div>
+                         <div style="text-align: right;">
+                              <div style="font-size: 2.5rem; font-weight: 900; color: #FF6B35;">R$ 299</div>
+                              <button class="button button--primary mt-sm">Finalizar Compra</button>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </section>
+
+     <!-- Grid Showcase -->
+     <section id="grid" class="section">
+          <div class="container">
+               <h2 class="display text-center mb-xl animate--fade-in">Demonstrações de CSS Grid</h2>
+               <p class="lead text-center mb-xl" style="max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Layouts bidimensionais poderosos usando CSS Grid para estruturas complexas
+               </p>
+
+               <!-- Grid: Basic Columns -->
+               <div class="mb-xl">
+                    <h3 class="mb-md">1. Grade de 3 Colunas Responsiva</h3>
+                    <div class="grid grid--cols-3">
+                         <div class="card">
+                              <div class="card__header">
+                                   <h4 class="card__title">Card 1</h4>
+                              </div>
+                              <p class="card__text">Colunas que se ajustam automaticamente em telas menores.</p>
+                         </div>
+                         <div class="card">
+                              <div class="card__header">
+                                   <h4 class="card__title">Card 2</h4>
+                              </div>
+                              <p class="card__text">Layout consistente e profissional para qualquer conteúdo.</p>
+                         </div>
+                         <div class="card">
+                              <div class="card__header">
+                                   <h4 class="card__title">Card 3</h4>
+                              </div>
+                              <p class="card__text">Facilmente escalável para adicionar mais items.</p>
+                         </div>
+                    </div>
+               </div>
+
+               <!-- Grid: Magazine Layout -->
+               <div class="mb-xl">
+                    <h3 class="mb-md">2. Layout Estilo Magazine (Grid Complexo)</h3>
+                    <div class="grid-layout--magazine">
+                         <div class="featured">
+                              <span class="badge mb-md">Destaque</span>
+                              <h3 style="color: white; margin-bottom: 0.5rem;">Artigo Principal em Destaque</h3>
+                              <p style="color: rgba(255,255,255,0.9);">Este é o artigo mais importante que ocupa mais
+                                   espaço no grid</p>
+                         </div>
+                         <div class="article">
+                              <h5>Artigo Secundário 1</h5>
+                              <p style="font-size: 0.9rem; color: #6B6B6B;">Conteúdo complementar importante</p>
+                         </div>
+                         <div class="article">
+                              <h5>Artigo Secundário 2</h5>
+                              <p style="font-size: 0.9rem; color: #6B6B6B;">Mais informações relevantes</p>
+                         </div>
+                         <div class="article">
+                              <h5>Artigo 3</h5>
+                              <p style="font-size: 0.9rem; color: #6B6B6B;">Conteúdo adicional</p>
+                         </div>
+                         <div class="article">
+                              <h5>Artigo 4</h5>
+                              <p style="font-size: 0.9rem; color: #6B6B6B;">Mais histórias</p>
+                         </div>
+                         <div class="article">
+                              <h5>Artigo 5</h5>
+                              <p style="font-size: 0.9rem; color: #6B6B6B;">Últimas notícias</p>
+                         </div>
+                    </div>
+               </div>
+
+               <!-- Grid: Gallery with Different Sizes -->
+               <div class="mb-xl">
+                    <h3 class="mb-md">3. Galeria com Itens de Tamanhos Variados</h3>
+                    <div class="grid-layout--gallery">
+                         <div class="gallery-item" style="background: linear-gradient(135deg, #FF6B35, #F7B801);">
+                              <div class="gallery-overlay">Item 1</div>
+                         </div>
+                         <div class="gallery-item gallery-item--tall"
+                              style="background: linear-gradient(135deg, #004E89, #006BA6);">
+                              <div class="gallery-overlay">Item Tall</div>
+                         </div>
+                         <div class="gallery-item" style="background: linear-gradient(135deg, #F7B801, #FF6B35);">
+                              <div class="gallery-overlay">Item 3</div>
+                         </div>
+                         <div class="gallery-item gallery-item--wide"
+                              style="background: linear-gradient(135deg, #006BA6, #004E89);">
+                              <div class="gallery-overlay">Item Wide</div>
+                         </div>
+                         <div class="gallery-item" style="background: linear-gradient(135deg, #FF6B35, #004E89);">
+                              <div class="gallery-overlay">Item 5</div>
+                         </div>
+                         <div class="gallery-item gallery-item--large"
+                              style="background: linear-gradient(135deg, #F7B801, #006BA6);">
+                              <div class="gallery-overlay">Item Large</div>
+                         </div>
+                         <div class="gallery-item" style="background: linear-gradient(135deg, #004E89, #F7B801);">
+                              <div class="gallery-overlay">Item 7</div>
+                         </div>
+                         <div class="gallery-item" style="background: linear-gradient(135deg, #006BA6, #FF6B35);">
+                              <div class="gallery-overlay">Item 8</div>
+                         </div>
+                    </div>
+               </div>
+
+               <!-- Grid: Pricing Cards -->
+               <div class="mb-xl">
+                    <h3 class="mb-md">4. Tabela de Preços Responsiva</h3>
+                    <div class="grid-layout--pricing">
+                         <div class="pricing-card hover-effect--lift">
+                              <h4>Básico</h4>
+                              <div class="price">R$ 29<span style="font-size: 1rem; font-weight: 400;">/mês</span></div>
+                              <ul class="features">
+                                   <li>5 Projetos</li>
+                                   <li>10GB Armazenamento</li>
+                                   <li>Suporte por Email</li>
+                                   <li>Relatórios Básicos</li>
+                              </ul>
+                              <button class="button button--outline button--block">Escolher Plano</button>
+                         </div>
+                         <div class="pricing-card pricing-card--featured hover-effect--lift">
+                              <h4 style="color: white;">Profissional</h4>
+                              <div class="price" style="color: white;">R$ 79<span
+                                        style="font-size: 1rem; font-weight: 400;">/mês</span></div>
+                              <ul class="features" style="border-color: rgba(255,255,255,0.2);">
+                                   <li>Projetos Ilimitados</li>
+                                   <li>100GB Armazenamento</li>
+                                   <li>Suporte Prioritário</li>
+                                   <li>Relatórios Avançados</li>
+                                   <li>API Access</li>
+                              </ul>
+                              <button class="button button--dark button--block">Escolher Plano</button>
+                         </div>
+                         <div class="pricing-card hover-effect--lift">
+                              <h4>Enterprise</h4>
+                              <div class="price">R$ 199<span style="font-size: 1rem; font-weight: 400;">/mês</span>
+                              </div>
+                              <ul class="features">
+                                   <li>Tudo do Pro</li>
+                                   <li>Armazenamento Ilimitado</li>
+                                   <li>Suporte 24/7</li>
+                                   <li>Gerente Dedicado</li>
+                                   <li>White Label</li>
+                              </ul>
+                              <button class="button button--outline button--block">Escolher Plano</button>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </section>
+
+     <!-- Animations Showcase -->
+     <section id="animations" class="section section--dark">
+          <div class="container">
+               <h2 class="display text-center mb-xl" style="color: white;">Animações e Transições</h2>
+               <p class="lead text-center mb-xl"
+                    style="max-width: 700px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.8);">
+                    Micro-interações e animações que tornam a interface viva e engajante
+               </p>
+
+               <div class="grid grid--cols-3 mb-xl">
+                    <div class="card animate--fade-in-up">
+                         <h5>Fade In Up</h5>
+                         <p>Entrada suave de baixo para cima</p>
+                    </div>
+                    <div class="card animate--fade-in-up animate-delay--1">
+                         <h5>Com Delay</h5>
+                         <p>Animações sequenciais elegantes</p>
+                    </div>
+                    <div class="card animate--fade-in-up animate-delay--2">
+                         <h5>Efeito Escalonado</h5>
+                         <p>Cria hierarquia visual natural</p>
+                    </div>
+               </div>
+
+               <div class="grid grid--cols-4 mb-xl">
+                    <div class="card hover-effect--lift text-center">
+                         <div style="font-size: 3rem; margin-bottom: 1rem;">🚀</div>
+                         <h5>Hover Lift</h5>
+                         <p class="small">Passe o mouse</p>
+                    </div>
+                    <div class="card hover-effect--scale text-center">
+                         <div style="font-size: 3rem; margin-bottom: 1rem;">📈</div>
+                         <h5>Hover Scale</h5>
+                         <p class="small">Efeito de zoom</p>
+                    </div>
+                    <div class="card hover-effect--glow text-center">
+                         <div style="font-size: 3rem; margin-bottom: 1rem;">✨</div>
+                         <h5>Hover Glow</h5>
+                         <p class="small">Brilho sutil</p>
+                    </div>
+                    <div class="card hover-effect--rotate text-center">
+                         <div style="font-size: 3rem; margin-bottom: 1rem;">🎪</div>
+                         <h5>Hover Rotate</h5>
+                         <p class="small">Rotação leve</p>
+                    </div>
+               </div>
+
+               <div class="flex flex--justify-center flex--gap-md flex--wrap">
+                    <div class="spinner"></div>
+                    <div class="spinner spinner--small"></div>
+                    <div class="spinner spinner--large"></div>
+               </div>
+               <p class="text-center mt-md" style="color: rgba(255,255,255,0.7);">Loading Spinners em diferentes
+                    tamanhos</p>
+          </div>
+     </section>
+
+     <!-- Components Showcase -->
+     <section id="components" class="section section--light">
+          <div class="container">
+               <h2 class="display text-center mb-xl">Componentes Reutilizáveis</h2>
+
+               <!-- Buttons -->
+               <div class="mb-xl">
+                    <h3 class="mb-md">Botões (Múltiplas Variantes)</h3>
+                    <div class="button-group mb-md">
+                         <button class="button button--primary">Primary</button>
+                         <button class="button button--secondary">Secondary</button>
+                         <button class="button button--outline">Outline</button>
+                         <button class="button button--ghost">Ghost</button>
+                         <button class="button button--dark">Dark</button>
+                    </div>
+                    <div class="button-group mb-md">
+                         <button class="button button--primary button--small">Small</button>
+                         <button class="button button--primary">Medium</button>
+                         <button class="button button--primary button--large">Large</button>
+                    </div>
+                    <button class="button button--primary button--block mb-md">Full Width Button</button>
+                    <div class="button-group">
+                         <button class="button button--primary button--pill">Pill Shape</button>
+                         <button class="button button--secondary button--pill">Another Pill</button>
+                    </div>
+               </div>
+
+               <!-- Cards -->
+               <div class="mb-xl">
+                    <h3 class="mb-md">Cards (Variações)</h3>
+                    <div class="grid grid--cols-3">
+                         <div class="card">
+                              <h4 class="card__title">Card Padrão</h4>
+                              <p class="card__text">Card básico com sombra e hover effect.</p>
+                              <button class="button button--primary button--small">Ação</button>
+                         </div>
+                         <div class="card card--bordered">
+                              <h4 class="card__title">Card com Borda</h4>
+                              <p class="card__text">Destaque com borda colorida.</p>
+                              <button class="button button--outline button--small">Ver Mais</button>
+                         </div>
+                         <div class="card card--gradient">
+                              <h4 class="card__title">Card Gradiente</h4>
+                              <p class="card__text">Design vibrante com gradiente de fundo.</p>
+                              <button class="button button--light button--small">Explorar</button>
+                         </div>
+                    </div>
+               </div>
+
+               <!-- Typography -->
+               <div class="mb-xl">
+                    <h3 class="mb-md">Tipografia</h3>
+                    <h1 class="display">Display Heading Extra Large</h1>
+                    <h2 class="display">Display Heading Large</h2>
+                    <h3>Heading 3 - Seção</h3>
+                    <h4>Heading 4 - Subtítulo</h4>
+                    <p class="lead">Lead paragraph com destaque visual para introduções e chamadas importantes que
+                         precisam de mais atenção.</p>
+                    <p>Parágrafo normal com texto regular que mantém boa legibilidade e espaçamento adequado para
+                         leitura confortável.</p>
+                    <p class="small">Texto pequeno para notas de rodapé e informações secundárias.</p>
+                    <blockquote>
+                         "A tipografia é a voz silenciosa do design. Ela comunica antes mesmo que as palavras sejam
+                         lidas."
+                    </blockquote>
+                    <p>Código inline: <code>const exemplo = 'styled code';</code></p>
+               </div>
+
+               <!-- Utilities Demo -->
+               <div class="mb-xl">
+                    <h3 class="mb-md">Classes Utilitárias</h3>
+                    <div class="grid grid--cols-2">
+                         <div class="p-lg bg-primary text-white rounded-lg text-center">
+                              Background Primary + Padding Large
+                         </div>
+                         <div class="p-lg bg-gradient-secondary text-white rounded-lg text-center">
+                              Gradient Background + Border Radius
+                         </div>
+                         <div class="p-lg shadow-xl rounded-lg text-center">
+                              Shadow XL + Rounded Large
+                         </div>
+                         <div class="p-lg bg-light rounded-lg text-center">
+                              Background Light + Padding
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </section>
+
+     <!-- Final CTA -->
+     <section class="section section--gradient">
+          <div class="container text-center">
+               <h2 class="display mb-md" style="color: white;">Pronto para Trabalhar Juntos?</h2>
+               <p class="lead mb-xl"
+                    style="color: rgba(255,255,255,0.9); max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Demonstrações completas de CSS moderno, SASS avançado, e design profissional. Entre em contato para
+                    discutir seu próximo projeto!
+               </p>
+               <div class="button-group button-group--center">
+                    <button class="button button--light button--large button--pill">Entrar em Contato</button>
+                    <button class="button button--dark button--large button--pill">Ver Portfolio Completo</button>
+               </div>
+          </div>
+     </section>
+
+     <!-- Footer -->
+     <footer class="footer">
+          <div class="footer__content">
+               <div class="flex-layout--footer">
+                    <div class="footer-column">
+                         <h4>CSS Skills</h4>
+                         <p style="color: rgba(255,255,255,0.7); margin-top: 0.5rem;">
+                              Demonstração profissional de habilidades frontend com SASS, Flexbox, Grid e técnicas
+                              modernas.
+                         </p>
+                    </div>
+                    <div class="footer-column">
+                         <h4>Navegação</h4>
+                         <ul>
+                              <li><a href="#hero">Início</a></li>
+                              <li><a href="#flexbox">Flexbox</a></li>
+                              <li><a href="#grid">Grid</a></li>
+                              <li><a href="#animations">Animações</a></li>
+                         </ul>
+                    </div>
+                    <div class="footer-column">
+                         <h4>Recursos</h4>
+                         <ul>
+                              <li><a href="#">Documentação</a></li>
+                              <li><a href="#">GitHub</a></li>
+                              <li><a href="#">CodePen</a></li>
+                              <li><a href="#">Blog</a></li>
+                         </ul>
+                    </div>
+                    <div class="footer-column">
+                         <h4>Contato</h4>
+                         <ul>
+                              <li><a href="#">Email</a></li>
+                              <li><a href="#">LinkedIn</a></li>
+                              <li><a href="#">Twitter</a></li>
+                              <li><a href="#">Portfolio</a></li>
+                         </ul>
+                    </div>
+               </div>
+               <div class="footer__bottom">
+                    &copy; 2026 CSS Skills Showcase. Desenvolvido com SASS e muito ☕
+               </div>
+          </div>
+     </footer>
+
+     <script>
+          // Scroll reveal animation
+          const revealElements = document.querySelectorAll('.animate--fade-in-up, .animate--fade-in');
+
+          const revealOnScroll = () => {
+               revealElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+
+                    if (elementTop < windowHeight * 0.85) {
+                         element.style.opacity = '1';
+                         element.style.transform = 'translateY(0)';
+                    }
+               });
+          };
+
+          window.addEventListener('scroll', revealOnScroll);
+          revealOnScroll(); // Initial check
+     </script>
 </body>
 
 </html>

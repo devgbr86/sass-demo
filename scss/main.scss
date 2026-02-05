@@ -1,12 +1,309 @@
-// Importa tudo
+// ==========================================
+// MAIN.SCSS - Arquivo Principal
+// ==========================================
+// CSS Skills Showcase - Demonstração de Flexbox, Grid & Técnicas Modernas
+// Desenvolvido com SASS para mostrar habilidades profissionais
+
+@use 'variables' as *;
 @use 'reset';
-@use 'variables';
 @use 'typography';
 @use 'button';
 @use 'card';
+@use 'flexbox';
+@use 'grid';
+@use 'animations';
+@use 'utilities';
 
-// Estilo global
-body {
-  background: variables.$light;
-  padding: 40px;
+// ==========================================
+// ESTILOS GLOBAIS E CUSTOMIZAÇÕES
+// ==========================================
+
+.hero {
+  min-height: 100vh;
+  background: $gradient-hero;
+  color: $color-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: $spacing-xl;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: float 20s ease-in-out infinite;
+  }
+  
+  &__content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+  }
+  
+  &__title {
+    font-family: $font-display;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: $font-weight-black;
+    line-height: 1;
+    margin-bottom: $spacing-lg;
+    animation: fadeInUp 1s ease-out;
+    
+    .highlight {
+      background: linear-gradient(135deg, $color-accent, $color-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+  
+  &__subtitle {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-weight: $font-weight-light;
+    margin-bottom: $spacing-xl;
+    opacity: 0.9;
+    animation: fadeInUp 1s ease-out 0.2s backwards;
+  }
+  
+  &__cta {
+    display: flex;
+    gap: $spacing-md;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 1s ease-out 0.4s backwards;
+  }
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-fixed;
+  background: rgba($color-white, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: $shadow-sm;
+  
+  &__container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: $spacing-md $spacing-lg;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  &__logo {
+    font-family: $font-display;
+    font-size: $font-size-h4;
+    font-weight: $font-weight-black;
+    color: $color-primary;
+  }
+  
+  &__menu {
+    display: flex;
+    gap: $spacing-lg;
+    list-style: none;
+    
+    a {
+      font-weight: $font-weight-medium;
+      color: $color-text;
+      transition: color $transition-base;
+      
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+}
+
+.feature-box {
+  background: $color-white;
+  padding: $spacing-xl;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-md;
+  text-align: center;
+  transition: all $transition-base;
+  height: 100%;
+  
+  &:hover {
+    box-shadow: $shadow-xl;
+    transform: translateY(-8px);
+    
+    .feature-box__icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+  }
+  
+  &__icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto $spacing-lg;
+    background: $gradient-primary;
+    border-radius: $radius-lg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: $color-white;
+    transition: transform $transition-base;
+  }
+  
+  &__title {
+    font-size: $font-size-h4;
+    margin-bottom: $spacing-sm;
+    color: $color-dark;
+  }
+  
+  &__text {
+    color: $color-text-light;
+    line-height: 1.6;
+  }
+}
+
+.showcase-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: $radius-lg;
+  cursor: pointer;
+  
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform $transition-slow;
+  }
+  
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba($color-dark, 0.9), transparent);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: $spacing-lg;
+    opacity: 0;
+    transition: opacity $transition-base;
+  }
+  
+  &__title {
+    color: $color-white;
+    font-size: $font-size-h4;
+    margin-bottom: $spacing-xs;
+  }
+  
+  &__description {
+    color: rgba($color-white, 0.8);
+    font-size: $font-size-small;
+  }
+  
+  &:hover {
+    .showcase-item__image {
+      transform: scale(1.1);
+    }
+    
+    .showcase-item__overlay {
+      opacity: 1;
+    }
+  }
+}
+
+.stat {
+  text-align: center;
+  
+  &__number {
+    font-family: $font-display;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: $font-weight-black;
+    color: $color-primary;
+    line-height: 1;
+    margin-bottom: $spacing-xs;
+  }
+  
+  &__label {
+    font-size: $font-size-base;
+    color: $color-text-light;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: $font-weight-semibold;
+  }
+}
+
+.testimonial {
+  background: $color-white;
+  padding: $spacing-xl;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-lg;
+  position: relative;
+  
+  &::before {
+    content: '"';
+    position: absolute;
+    top: $spacing-md;
+    left: $spacing-md;
+    font-family: $font-display;
+    font-size: 6rem;
+    line-height: 1;
+    color: rgba($color-primary, 0.2);
+  }
+  
+  &__text {
+    font-size: $font-size-large;
+    font-style: italic;
+    color: $color-text;
+    margin-bottom: $spacing-lg;
+    position: relative;
+    z-index: 1;
+  }
+  
+  &__author {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    
+    img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+  
+  &__name {
+    font-weight: $font-weight-bold;
+    color: $color-dark;
+  }
+  
+  &__role {
+    font-size: $font-size-small;
+    color: $color-text-light;
+  }
+}
+
+.footer {
+  background: $color-dark;
+  color: $color-white;
+  padding: $spacing-xxxl 0 $spacing-lg;
+  
+  &__content {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 $spacing-lg;
+  }
+  
+  &__bottom {
+    margin-top: $spacing-xl;
+    padding-top: $spacing-lg;
+    border-top: 1px solid rgba($color-white, 0.1);
+    text-align: center;
+    color: rgba($color-white, 0.6);
+    font-size: $font-size-small;
+  }
 }
